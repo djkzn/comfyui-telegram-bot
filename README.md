@@ -36,7 +36,7 @@ Telegram-бот, который принимает команды в чате и
 
 ## 🏗️ Архитектура
 
-![Architecture](assets/architecture.svg)
+![Architecture](./assets/architecture.png)
 
 ```
 Пользователь
