@@ -1,0 +1,24 @@
+# Конфиг с токеном — НИКОГДА не публиковать
+config.json
+
+# Виртуальное окружение Python
+venv/
+.venv/
+env/
+
+# Кэш Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Временные файлы бота
+.botdata/
+
+# Файлы редакторов
+.idea/
+.vscode/
+*.suo
+
+# Windows
+Thumbs.db
+desktop.ini

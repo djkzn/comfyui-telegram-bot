@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" font-family="Segoe UI, Inter, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ea580c"/>
+    </marker>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="620" fill="#f8f7f4" rx="12"/>
+
+  <text x="450" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#1a1a1a">TelegramComfyBot — Architecture</text>
+  <text x="450" y="56" text-anchor="middle" font-size="12" fill="#888">bot.py · ComfyUI local · GPU/CPU monitoring</text>
+
+  <!-- USER -->
+  <rect x="30" y="80" width="130" height="90" rx="10" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="95" y="108" text-anchor="middle" font-size="22">&#128100;</text>
+  <text x="95" y="128" text-anchor="middle" font-size="13" font-weight="600" fill="#1e3a8a">&#1055;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;</text>
+  <text x="95" y="143" text-anchor="middle" font-size="10" fill="#3b82f6">Telegram-&#1082;&#1083;&#1080;&#1077;&#1085;&#1090;</text>
+  <text x="95" y="157" text-anchor="middle" font-size="10" fill="#64748b">allowed_chat_id</text>
+
+  <!-- TELEGRAM API -->
+  <rect x="220" y="80" width="145" height="90" rx="10" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="292" y="108" text-anchor="middle" font-size="22">&#9992;</text>
+  <text x="292" y="128" text-anchor="middle" font-size="13" font-weight="600" fill="#0c4a6e">Telegram Bot API</text>
+  <text x="292" y="143" text-anchor="middle" font-size="10" fill="#0369a1">Long Polling</text>
+  <text x="292" y="157" text-anchor="middle" font-size="10" fill="#64748b">getUpdates / send*</text>
+
+  <!-- User -> TG -->
+  <line x1="160" y1="120" x2="218" y2="120" stroke="#3b82f6" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+  <text x="189" y="113" text-anchor="middle" font-size="9" fill="#3b82f6">&#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1099; / &#1084;&#1077;&#1076;&#1080;&#1072;</text>
+  <!-- TG -> User -->
+  <line x1="220" y1="138" x2="162" y2="138" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <text x="191" y="152" text-anchor="middle" font-size="9" fill="#16a34a">&#1092;&#1086;&#1090;&#1086; / &#1074;&#1080;&#1076;&#1077;&#1086; / &#1089;&#1090;&#1072;&#1090;&#1091;&#1089;</text>
+
+  <!-- BOT CORE -->
+  <rect x="390" y="68" width="205" height="340" rx="12" fill="#fefce8" stroke="#fbbf24" stroke-width="2" filter="url(#shadow)"/>
+  <text x="492" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">&#129302; TelegramComfyBot</text>
+  <text x="492" y="107" text-anchor="middle" font-size="10" fill="#92400e">bot.py · Python 3</text>
+
+  <rect x="405" y="115" width="175" height="50" rx="7" fill="#fef9c3" stroke="#fde047" stroke-width="1"/>
+  <text x="492" y="133" text-anchor="middle" font-size="11" font-weight="600" fill="#713f12">Command Handler</text>
+  <text x="492" y="147" text-anchor="middle" font-size="9" fill="#92400e">/img  /start  /status  /diag</text>
+  <text x="492" y="159" text-anchor="middle" font-size="9" fill="#92400e">/frames  /cancel  /reset  /logs</text>
+
+  <rect x="405" y="173" width="175" height="50" rx="7" fill="#fef9c3" stroke="#fde047" stroke-width="1"/>
+  <text x="492" y="191" text-anchor="middle" font-size="11" font-weight="600" fill="#713f12">Media Handler</text>
+  <text x="492" y="205" text-anchor="middle" font-size="9" fill="#92400e">&#1092;&#1086;&#1090;&#1086; + &#1074;&#1080;&#1076;&#1077;&#1086; &#8594; pending state</text>
+  <text x="492" y="217" text-anchor="middle" font-size="9" fill="#92400e">download &#8594; comfyui/input/</text>
+
+  <rect x="405" y="231" width="175" height="50" rx="7" fill="#fef9c3" stroke="#fde047" stroke-width="1"/>
+  <text x="492" y="249" text-anchor="middle" font-size="11" font-weight="600" fill="#713f12">Job Manager</text>
+  <text x="492" y="263" text-anchor="middle" font-size="9" fill="#92400e">submit_i2v_job()</text>
+  <text x="492" y="275" text-anchor="middle" font-size="9" fill="#92400e">submit_txt2img_job()</text>
+
+  <rect x="405" y="289" width="175" height="50" rx="7" fill="#fef9c3" stroke="#fde047" stroke-width="1"/>
+  <text x="492" y="307" text-anchor="middle" font-size="11" font-weight="600" fill="#713f12">State &amp; Disk Manager</text>
+  <text x="492" y="321" text-anchor="middle" font-size="9" fill="#92400e">state.json · offset.txt · bot.log</text>
+  <text x="492" y="333" text-anchor="middle" font-size="9" fill="#92400e">disk space check (min_free_disk_gb)</text>
+
+  <rect x="405" y="347" width="175" height="50" rx="7" fill="#fef9c3" stroke="#fde047" stroke-width="1"/>
+  <text x="492" y="365" text-anchor="middle" font-size="11" font-weight="600" fill="#713f12">&#127777; GPU/CPU Monitor</text>
+  <text x="492" y="379" text-anchor="middle" font-size="9" fill="#92400e">pynvml &#8594; NVIDIA temp + VRAM</text>
+  <text x="492" y="391" text-anchor="middle" font-size="9" fill="#92400e">nvidia-smi fallback · WMI (Windows)</text>
+
+  <!-- TG -> Bot -->
+  <line x1="365" y1="120" x2="388" y2="160" stroke="#3b82f6" stroke-width="1.8" marker-end="url(#arrow-blue)"/>
+  <text x="363" y="140" text-anchor="middle" font-size="9" fill="#3b82f6">updates</text>
+  <!-- Bot -> TG -->
+  <line x1="390" y1="200" x2="367" y2="158" stroke="#16a34a" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+  <text x="358" y="183" text-anchor="middle" font-size="9" fill="#16a34a">send*</text>
+
+  <!-- COMFYUI -->
+  <rect x="668" y="80" width="205" height="175" rx="12" fill="#f0fdf4" stroke="#4ade80" stroke-width="2" filter="url(#shadow)"/>
+  <text x="770" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="#14532d">&#9889; ComfyUI</text>
+  <text x="770" y="121" text-anchor="middle" font-size="10" fill="#166534">localhost:8188 · REST API</text>
+
+  <rect x="683" y="130" width="175" height="35" rx="6" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+  <text x="770" y="147" text-anchor="middle" font-size="10" font-weight="600" fill="#14532d">POST /prompt</text>
+  <text x="770" y="160" text-anchor="middle" font-size="9" fill="#166534">workflow JSON + client_id &#8594; prompt_id</text>
+
+  <rect x="683" y="172" width="175" height="35" rx="6" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+  <text x="770" y="189" text-anchor="middle" font-size="10" font-weight="600" fill="#14532d">GET /history/{prompt_id}</text>
+  <text x="770" y="202" text-anchor="middle" font-size="9" fill="#166534">poll &#8594; &#1089;&#1090;&#1072;&#1090;&#1091;&#1089; / filename</text>
+
+  <rect x="683" y="214" width="175" height="35" rx="6" fill="#dcfce7" stroke="#86efac" stroke-width="1"/>
+  <text x="770" y="231" text-anchor="middle" font-size="10" font-weight="600" fill="#14532d">POST /interrupt</text>
+  <text x="770" y="244" text-anchor="middle" font-size="9" fill="#166534">/cancel &#8594; &#1086;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090;&#1100; &#1075;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1102;</text>
+
+  <!-- Bot -> ComfyUI -->
+  <line x1="595" y1="210" x2="666" y2="175" stroke="#ea580c" stroke-width="1.8" marker-end="url(#arrow-orange)"/>
+  <text x="628" y="183" text-anchor="middle" font-size="9" fill="#ea580c">HTTP POST workflow</text>
+  <!-- ComfyUI -> Bot poll -->
+  <line x1="668" y1="220" x2="597" y2="250" stroke="#555" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="630" y="243" text-anchor="middle" font-size="9" fill="#555">poll /history</text>
+
+  <!-- WORKFLOWS -->
+  <rect x="668" y="275" width="205" height="95" rx="12" fill="#faf5ff" stroke="#c084fc" stroke-width="2" filter="url(#shadow)"/>
+  <text x="770" y="297" text-anchor="middle" font-size="12" font-weight="700" fill="#581c87">&#128196; Workflow JSON</text>
+  <rect x="683" y="304" width="83" height="35" rx="5" fill="#f3e8ff" stroke="#d8b4fe" stroke-width="1"/>
+  <text x="724" y="318" text-anchor="middle" font-size="9" font-weight="600" fill="#6b21a8">i2v.json</text>
+  <text x="724" y="330" text-anchor="middle" font-size="8" fill="#7e22ce">Image-to-Video</text>
+  <rect x="775" y="304" width="83" height="35" rx="5" fill="#f3e8ff" stroke="#d8b4fe" stroke-width="1"/>
+  <text x="816" y="318" text-anchor="middle" font-size="9" font-weight="600" fill="#6b21a8">img_turbo.json</text>
+  <text x="816" y="330" text-anchor="middle" font-size="8" fill="#7e22ce">txt2img</text>
+  <text x="770" y="358" text-anchor="middle" font-size="9" fill="#7e22ce">patch node IDs &#8594; POST /prompt</text>
+
+  <!-- Bot -> Workflows -->
+  <line x1="595" y1="290" x2="666" y2="310" stroke="#9333ea" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="626" y="294" text-anchor="middle" font-size="9" fill="#9333ea">patch &amp; load</text>
+
+  <!-- FILE SYSTEM -->
+  <rect x="30" y="430" width="840" height="95" rx="12" fill="#fff7ed" stroke="#fb923c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="450" y="452" text-anchor="middle" font-size="12" font-weight="700" fill="#7c2d12">&#128190; &#1051;&#1086;&#1082;&#1072;&#1083;&#1100;&#1085;&#1072;&#1103; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;&#1072;&#1103; &#1089;&#1080;&#1089;&#1090;&#1077;&#1084;&#1072;</text>
+
+  <rect x="45" y="460" width="175" height="50" rx="6" fill="#ffedd5" stroke="#fdba74" stroke-width="1"/>
+  <text x="132" y="475" text-anchor="middle" font-size="9" font-weight="600" fill="#7c2d12">comfyui/input/</text>
+  <text x="132" y="488" text-anchor="middle" font-size="8" fill="#9a3412">&#1092;&#1086;&#1090;&#1086; + &#1074;&#1080;&#1076;&#1077;&#1086; &#1086;&#1090; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;</text>
+  <text x="132" y="500" text-anchor="middle" font-size="8" fill="#9a3412">shutil.copy2() &#1087;&#1077;&#1088;&#1077;&#1076; &#1079;&#1072;&#1087;&#1091;&#1089;&#1082;&#1086;&#1084;</text>
+
+  <rect x="235" y="460" width="175" height="50" rx="6" fill="#ffedd5" stroke="#fdba74" stroke-width="1"/>
+  <text x="322" y="475" text-anchor="middle" font-size="9" font-weight="600" fill="#7c2d12">comfyui/output/</text>
+  <text x="322" y="488" text-anchor="middle" font-size="8" fill="#9a3412">*.mp4 / *.png — &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;</text>
+  <text x="322" y="500" text-anchor="middle" font-size="8" fill="#9a3412">scan &#8594; send_video / send_photo</text>
+
+  <rect x="425" y="460" width="175" height="50" rx="6" fill="#ffedd5" stroke="#fdba74" stroke-width="1"/>
+  <text x="512" y="475" text-anchor="middle" font-size="9" font-weight="600" fill="#7c2d12">.botdata/runtime/</text>
+  <text x="512" y="488" text-anchor="middle" font-size="8" fill="#9a3412">state.json · offset.txt</text>
+  <text x="512" y="500" text-anchor="middle" font-size="8" fill="#9a3412">bot.log (40 &#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1085;&#1080;&#1093; &#1089;&#1090;&#1088;&#1086;&#1082;)</text>
+
+  <rect x="615" y="460" width="175" height="50" rx="6" fill="#ffedd5" stroke="#fdba74" stroke-width="1"/>
+  <text x="702" y="475" text-anchor="middle" font-size="9" font-weight="600" fill="#7c2d12">.botdata/downloads/</text>
+  <text x="702" y="488" text-anchor="middle" font-size="8" fill="#9a3412">&#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1099;&#1077; &#1092;&#1072;&#1081;&#1083;&#1099;</text>
+  <text x="702" y="500" text-anchor="middle" font-size="8" fill="#9a3412">download_telegram_file()</text>
+
+  <!-- Bot -> FS arrows -->
+  <line x1="450" y1="408" x2="132" y2="458" stroke="#ea580c" stroke-width="1.3" marker-end="url(#arrow-orange)"/>
+  <line x1="450" y1="408" x2="322" y2="458" stroke="#ea580c" stroke-width="1.3" marker-end="url(#arrow-orange)"/>
+  <line x1="490" y1="408" x2="512" y2="458" stroke="#ea580c" stroke-width="1.3" marker-end="url(#arrow-orange)"/>
+  <line x1="490" y1="408" x2="702" y2="458" stroke="#ea580c" stroke-width="1.3" marker-end="url(#arrow-orange)"/>
+  <!-- output scan back -->
+  <line x1="322" y1="460" x2="720" y2="370" stroke="#555" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <text x="550" y="408" text-anchor="middle" font-size="8" fill="#555">find_newest_on_disk()</text>
+</svg>

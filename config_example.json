@@ -1,0 +1,18 @@
+{
+  "telegram": {
+    "bot_token": "YOUR_BOT_TOKEN_HERE",
+    "allowed_chat_id": "YOUR_CHAT_ID_HERE"
+  },
+  "comfyui_base_url": "http://127.0.0.1:8188",
+  "comfyui_input_dir": "C:/ComfyUI/input",
+  "comfyui_output_dir": "C:/ComfyUI/output",
+  "workflow_api_json": "./workflows/i2v.json",
+  "txt2img_workflow_api_json": "./workflows/image_z_image_turbo.json",
+  "photo_node_id": "116",
+  "video_node_id": "141",
+  "txt2img_prompt_node_id": "5727",
+  "poll_timeout_seconds": 25,
+  "status_poll_interval_seconds": 5,
+  "min_free_disk_gb": 10,
+  "frames_default": 150
+}
