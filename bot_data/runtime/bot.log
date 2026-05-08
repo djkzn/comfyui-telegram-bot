@@ -1,6 +1,0 @@
-[2026-05-08 00:50:53] Bot started
-[2026-05-08 00:50:57] Bot started
-[2026-05-08 00:51:11] Main loop error [🟢 Решается удалённо]: Telegram API getUpdates вернул ошибку: {'ok': False, 'error_code': 409, 'description': 'Conflict: terminated by other getUpdates request; make sure that only one bot instance is running'}
-[2026-05-08 00:57:00] Diagnostic Bot started
-[2026-05-08 00:59:23] Bot started
-[2026-05-08 01:00:29] Bot started
