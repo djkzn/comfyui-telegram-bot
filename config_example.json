@@ -1,18 +1,33 @@
 {
-  "telegram": {
-    "bot_token": "YOUR_BOT_TOKEN_HERE",
-    "allowed_chat_id": "YOUR_CHAT_ID_HERE"
-  },
-  "comfyui_base_url": "http://127.0.0.1:8188",
-  "comfyui_input_dir": "C:/ComfyUI/input",
-  "comfyui_output_dir": "C:/ComfyUI/output",
-  "workflow_api_json": "./workflows/i2v.json",
-  "txt2img_workflow_api_json": "./workflows/image_z_image_turbo.json",
-  "photo_node_id": "116",
-  "video_node_id": "141",
-  "txt2img_prompt_node_id": "5727",
+  "telegram_bot_token": "YOUR_BOT_TOKEN",
+  "allowed_chat_id": 123456789,
   "poll_timeout_seconds": 25,
   "status_poll_interval_seconds": 5,
+  "work_dir": "./bot_data",
+  "comfyui_base_url": "http://127.0.0.1:8188",
+  "comfy_input_dir": "C:/ComfyUI/input",
+  "comfy_output_dir": "C:/ComfyUI/output",
+  "workflow_api_json": "./workflows/i2v.json",
+  "photo_node_id": "113",
+  "photo_input_field": "image",
+  "video_node_id": "141",
+  "video_input_field": "video",
+  "save_node_id": "60",
+  "save_prefix_field": "filename_prefix",
+  "result_extensions": [
+    ".mp4",
+    ".mov",
+    ".webm",
+    ".gif"
+  ],
   "min_free_disk_gb": 10,
-  "frames_default": 150
+  "frames_node_id": "134",
+  "frames_field": "value",
+  "frames_default": 150,
+  "txt2img_workflow_api_json": "./workflows/image_z_image_turbo.json",
+  "txt2img_prompt_node_id": "57:27",
+  "txt2img_prompt_field": "text",
+  "txt2img_save_node_id": "9",
+  "txt2img_save_prefix_field": "filename_prefix",
+  "txt2img_result_extensions": [".png", ".jpg", ".jpeg", ".webp"]
 }
